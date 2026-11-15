@@ -16,6 +16,7 @@ CORS(app)
 @app.route("/success.html", methods=["POST", "GET", "PUT", "PATCH", "DELETE"])
 def addFeedback():
     if request.method == "GET" and request.args.get("url"):
+        # ADD additional if statement to verify url before redirect
         url = request.args.get("url", "")
         return redirect(url, code=302)
     if request.method == "POST":
